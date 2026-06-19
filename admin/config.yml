@@ -1,20 +1,9 @@
 # Decap CMS Configuration for Shiksha Alochana
-#
-# Decap CMS — browser editing setup
-#
-# The site is already live. To enable the /admin panel for browser-based editing:
-# 1. Go to https://github.com/settings/developers → New OAuth App
-#    - Homepage URL: https://shikshaalochana2021-bit.github.io
-#    - Authorization callback URL: https://shikshaalochana2021-bit.github.io
-# 2. Copy the Client ID and replace YOUR-GITHUB-OAUTH-APP-CLIENT-ID below.
-# 3. Commit and push that one change. Done — visit /admin/ to edit from any browser.
+# Uses Netlify Identity + Git Gateway for browser-based login (no OAuth app needed).
 
 backend:
-  name: github
-  repo: shikshaalochana2021-bit/shikshaalochana2021-bit.github.io
+  name: git-gateway
   branch: main
-  auth_type: pkce
-  app_id: Ov23liYkxFuGd84VVjn0
 
 media_folder: "assets/images/uploads"
 public_folder: "/assets/images/uploads"

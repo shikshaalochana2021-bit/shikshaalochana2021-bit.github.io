@@ -13,7 +13,7 @@ backend:
   name: github
   repo: shikshaalochana2021-bit/shikshaalochana2021-bit.github.io
   branch: main
-  auth_type: implicit
+  auth_type: pkce
   app_id: Ov23liYkxFuGd84VVjn0
 
 media_folder: "assets/images/uploads"

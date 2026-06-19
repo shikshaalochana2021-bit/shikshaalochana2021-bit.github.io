@@ -65,7 +65,7 @@ permalink: /contact/
       <!-- Contact Form -->
       <div class="contact-form-card">
         <h3>Send Us a Message</h3>
-        <form action="https://formspree.io/f/YOUR-FORM-ID" method="POST">
+        <form action="https://formspree.io/f/xkoadjkw" method="POST">
           <div class="form-row">
             <div class="form-group">
               <label for="name">Your Name *</label>

@@ -400,6 +400,106 @@
     .modal h3 { font-size: 1.05rem; color: #c62828; margin-bottom: 0.6rem; }
     .modal p { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1.25rem; line-height: 1.55; }
     .modal-actions { display: flex; gap: 0.75rem; }
+
+    /* UPLOAD VIEW */
+    .upload-zone {
+      border: 2.5px dashed var(--border);
+      border-radius: var(--radius);
+      padding: 2.5rem 1rem;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+      background: var(--bg);
+      margin-bottom: 1.25rem;
+    }
+    .upload-zone:hover, .upload-zone.drag-over {
+      border-color: var(--green);
+      background: #F1F8E9;
+    }
+    .upload-zone-icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    .upload-zone-label { font-size: 0.9rem; color: var(--text-muted); line-height: 1.55; }
+    .upload-zone-label strong { color: var(--green-dark); cursor: pointer; }
+    .upload-zone-types { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.35rem; }
+    #file-input { display: none; }
+
+    .upload-results { display: flex; flex-direction: column; gap: 0.75rem; }
+
+    .upload-result-item {
+      background: #F1F8E9;
+      border: 1.5px solid #A5D6A7;
+      border-radius: var(--radius);
+      padding: 1rem 1.1rem;
+    }
+    .upload-result-item.error-item {
+      background: #FFEBEE;
+      border-color: #EF9A9A;
+    }
+    .upload-result-filename {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--green-dark);
+      margin-bottom: 0.5rem;
+      word-break: break-all;
+    }
+    .upload-result-item.error-item .upload-result-filename { color: #c62828; }
+    .upload-result-img {
+      max-width: 100%;
+      max-height: 180px;
+      border-radius: 6px;
+      margin-bottom: 0.65rem;
+      display: block;
+    }
+    .url-copy-row {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+    .url-copy-row input {
+      flex: 1;
+      font-family: 'Courier New', monospace;
+      font-size: 0.78rem;
+      padding: 0.4rem 0.6rem;
+      background: #fff;
+      border-color: #A5D6A7;
+    }
+    .btn-copy {
+      padding: 0.4rem 0.75rem;
+      font-size: 0.78rem;
+      background: var(--green-dark);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-family: inherit;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .btn-copy:hover { background: var(--green); }
+    .upload-hint-row {
+      font-size: 0.76rem;
+      color: #555;
+    }
+    .upload-hint-row code {
+      background: #fff;
+      padding: 0.1rem 0.3rem;
+      border-radius: 3px;
+      font-size: 0.75rem;
+      word-break: break-all;
+    }
+    .progress-bar-wrap {
+      height: 6px;
+      background: #ddd;
+      border-radius: 3px;
+      margin-top: 0.5rem;
+      overflow: hidden;
+    }
+    .progress-bar {
+      height: 100%;
+      background: var(--green-dark);
+      border-radius: 3px;
+      transition: width 0.3s;
+    }
   </style>
 </head>
 <body>
@@ -449,8 +549,9 @@
       শিক্ষা আলোচনা <span>Content Admin</span>
     </div>
     <nav class="admin-nav">
-      <button class="admin-nav-btn active" id="nav-new"   onclick="showView('new')">New Post</button>
-      <button class="admin-nav-btn"        id="nav-posts" onclick="showView('posts')">All Posts</button>
+      <button class="admin-nav-btn active" id="nav-new"    onclick="showView('new')">New Post</button>
+      <button class="admin-nav-btn"        id="nav-posts"  onclick="showView('posts')">All Posts</button>
+      <button class="admin-nav-btn"        id="nav-upload" onclick="showView('upload')">Upload Files</button>
     </nav>
     <button class="admin-logout" onclick="logout()">Log out</button>
   </header>
@@ -517,6 +618,33 @@ For italic: *write this way*"></textarea>
           <div id="publish-status" class="status-msg"></div>
 
         </form>
+      </div>
+    </div>
+
+    <!-- UPLOAD FILES -->
+    <div id="view-upload" class="view">
+      <div class="card">
+        <div class="card-title">Upload Photos &amp; Documents</div>
+
+        <div class="upload-zone" id="upload-zone" onclick="document.getElementById('file-input').click()">
+          <div class="upload-zone-icon">📎</div>
+          <div class="upload-zone-label">
+            <strong>Click to choose files</strong> or drag and drop here
+          </div>
+          <div class="upload-zone-types">Photos: JPG, PNG, WebP, GIF &nbsp;·&nbsp; Documents: PDF, DOCX, ODT &nbsp;·&nbsp; Max 10 MB per file</div>
+        </div>
+        <input type="file" id="file-input" multiple accept="image/*,.pdf,.doc,.docx,.odt">
+
+        <div id="upload-results" class="upload-results"></div>
+      </div>
+
+      <div class="card" style="background:#F9F6F0; box-shadow:none; border:1.5px solid var(--border);">
+        <div class="card-title" style="color:var(--text-muted); font-size:.92rem;">How to use uploaded files in a post</div>
+        <div style="font-size:.84rem; color:var(--text-muted); line-height:1.65;">
+          <p style="margin-bottom:.5rem;">After uploading, copy the <strong>Markdown link</strong> shown under the file and paste it into the Post Content box when writing a post.</p>
+          <p style="margin-bottom:.35rem;"><strong>Photo:</strong> <code>![Description of photo](/assets/images/uploads/photo.jpg)</code></p>
+          <p><strong>PDF/Document:</strong> <code>[Download document](/assets/images/uploads/document.pdf)</code></p>
+        </div>
       </div>
     </div>
 
@@ -737,6 +865,132 @@ For italic: *write this way*"></textarea>
   function todayStr() { return new Date().toISOString().split('T')[0]; }
 
   document.getElementById('token-input').addEventListener('keydown', e => { if (e.key === 'Enter') login(); });
+
+  /* ── UPLOAD ── */
+  const uploadZone = document.getElementById('upload-zone');
+  const fileInput  = document.getElementById('file-input');
+
+  uploadZone.addEventListener('dragover',  e => { e.preventDefault(); uploadZone.classList.add('drag-over'); });
+  uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('drag-over'));
+  uploadZone.addEventListener('drop', e => {
+    e.preventDefault();
+    uploadZone.classList.remove('drag-over');
+    handleFiles(Array.from(e.dataTransfer.files));
+  });
+  fileInput.addEventListener('change', () => {
+    handleFiles(Array.from(fileInput.files));
+    fileInput.value = '';
+  });
+
+  async function handleFiles(files) {
+    for (const file of files) {
+      if (file.size > 10 * 1024 * 1024) {
+        appendUploadResult(null, file.name, `File is too large (${(file.size/1024/1024).toFixed(1)} MB). Maximum is 10 MB.`, true);
+        continue;
+      }
+      await uploadFile(file);
+    }
+  }
+
+  async function uploadFile(file) {
+    const token    = localStorage.getItem('gh_token');
+    const safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, '_');
+    const path     = `assets/images/uploads/${safeName}`;
+    const resultId = 'upload-' + Date.now() + '-' + Math.random().toString(36).slice(2);
+
+    // Show pending card with progress bar
+    const container = document.getElementById('upload-results');
+    const div = document.createElement('div');
+    div.id = resultId;
+    div.className = 'upload-result-item';
+    div.innerHTML = `
+      <div class="upload-result-filename">⏳ Uploading ${esc(file.name)}…</div>
+      <div class="progress-bar-wrap"><div class="progress-bar" style="width:30%"></div></div>`;
+    container.prepend(div);
+
+    try {
+      // Read file as base64
+      const b64 = await fileToBase64(file);
+
+      // Check if file already exists (get SHA for overwrite)
+      let sha = null;
+      const check = await fetch(`${API}/repos/${REPO}/contents/${path}`, {
+        headers: { Authorization: `token ${token}` }
+      });
+      if (check.ok) { const existing = await check.json(); sha = existing.sha; }
+
+      // Animate progress bar
+      div.querySelector('.progress-bar').style.width = '65%';
+
+      const body = { message: `Upload: ${safeName}`, content: b64 };
+      if (sha) body.sha = sha;
+
+      const res = await fetch(`${API}/repos/${REPO}/contents/${path}`, {
+        method: 'PUT',
+        headers: { 'Authorization': `token ${token}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify(body)
+      });
+
+      if (res.ok) {
+        const fileUrl  = `https://shikshaalochana2021-bit.github.io/${path}`;
+        const isImage  = file.type.startsWith('image/');
+        const isPdf    = file.type === 'application/pdf';
+        const mdSnippet = isImage
+          ? `![${safeName}](/${path})`
+          : `[${file.name}](/${path})`;
+
+        appendUploadResult(resultId, file.name, fileUrl, false, isImage, mdSnippet, sha !== null);
+      } else {
+        const err = await res.json();
+        appendUploadResult(resultId, file.name, `Upload failed: ${err.message}`, true);
+      }
+    } catch(ex) {
+      appendUploadResult(resultId, file.name, `Error: ${ex.message}`, true);
+    }
+  }
+
+  function appendUploadResult(id, filename, urlOrError, isError, isImage, mdSnippet, wasOverwrite) {
+    const div = id ? document.getElementById(id) : document.createElement('div');
+    if (!id) document.getElementById('upload-results').prepend(div);
+
+    if (isError) {
+      div.className = 'upload-result-item error-item';
+      div.innerHTML = `<div class="upload-result-filename">✗ ${esc(filename)}</div>
+        <div style="font-size:.82rem;color:#c62828;">${esc(urlOrError)}</div>`;
+      return;
+    }
+
+    const overwriteNote = wasOverwrite ? ' <span style="color:#E65100;font-size:.72rem;">(file replaced)</span>' : '';
+    div.className = 'upload-result-item';
+    div.innerHTML = `
+      <div class="upload-result-filename">✓ ${esc(filename)}${overwriteNote}</div>
+      ${isImage ? `<img class="upload-result-img" src="${urlOrError}" alt="${esc(filename)}">` : ''}
+      <div class="url-copy-row">
+        <input type="text" value="${esc(urlOrError)}" readonly onclick="this.select()">
+        <button class="btn-copy" onclick="copyText('${urlOrError.replace(/'/g,"\\'")}', this)">Copy URL</button>
+      </div>
+      <div class="upload-hint-row">
+        Markdown: <code>${esc(mdSnippet)}</code>
+        <button class="btn-copy" style="margin-left:.4rem;" onclick="copyText('${mdSnippet.replace(/'/g,"\\'")}', this)">Copy</button>
+      </div>`;
+  }
+
+  function fileToBase64(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload  = () => resolve(reader.result.split(',')[1]);
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+  }
+
+  function copyText(text, btn) {
+    navigator.clipboard.writeText(text).then(() => {
+      const orig = btn.textContent;
+      btn.textContent = 'Copied!';
+      setTimeout(() => btn.textContent = orig, 1800);
+    });
+  }
 </script>
 </body>
 </html>

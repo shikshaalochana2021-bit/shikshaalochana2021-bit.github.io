@@ -539,10 +539,12 @@
           <li>Scroll to the very bottom → click <strong>Developer settings</strong></li>
           <li>Go to <strong>Personal access tokens → Tokens (classic)</strong></li>
           <li>Click <strong>Generate new token (classic)</strong></li>
-          <li>Set a note (e.g. "Website admin"), choose expiration, tick the <strong>repo</strong> checkbox</li>
+          <li>Set a note (e.g. "Website admin"), choose expiration (1 year)</li>
+          <li>Under <strong>Select scopes</strong>, tick the <strong>repo</strong> checkbox (the top one — this gives full access needed to upload files)</li>
           <li>Click <strong>Generate token</strong>, copy it, and paste it above</li>
         </ol>
-        <p style="margin-top:.75rem; color:#aaa; font-size:.78rem;">Your token stays in this browser only and is never sent anywhere except GitHub.</p>
+        <p style="margin-top:.6rem; color:#c62828; font-size:.8rem; font-weight:600;">⚠ Make sure to choose <em>Tokens (classic)</em>, not "Fine-grained tokens" — fine-grained tokens require extra steps.</p>
+        <p style="margin-top:.4rem; color:#aaa; font-size:.78rem;">Your token stays in this browser only and is never sent anywhere except GitHub.</p>
       </div>
     </details>
   </div>
@@ -778,8 +780,10 @@ For italic: *write this way*"></textarea>
         const err = await res.json();
         if (err.message && err.message.includes('already exists')) {
           showStatus('error', 'A post with this title and date already exists. Please change the title or date.');
-        } else if (err.message && err.message.includes('Bad credentials')) {
+        } else if (err.message && (err.message.includes('Bad credentials') || err.message.includes('401'))) {
           showStatus('error', 'Your token has expired or been revoked. Please log out and create a new token.');
+        } else if (err.message && err.message.includes('Resource not accessible')) {
+          showStatus('error', tokenPermError());
         } else {
           showStatus('error', `Error: ${esc(err.message)}`);
         }
@@ -864,6 +868,10 @@ For italic: *write this way*"></textarea>
   function closeModal() { document.getElementById('delete-modal').classList.remove('open'); }
 
   /* UTILS */
+  function tokenPermError() {
+    return 'Your token does not have write permission. Please log out, go to GitHub → Settings → Developer settings → Personal access tokens → Tokens (classic), generate a new token with the <strong>repo</strong> scope checked, and log in again.';
+  }
+
   function makeSlug(s) {
     return s.toLowerCase().replace(/[^\w\s-]/g,'').replace(/[\s_]+/g,'-').replace(/^-+|-+$/g,'').substring(0,60) || 'post';
   }
@@ -940,6 +948,7 @@ For italic: *write this way*"></textarea>
 
       if (res.ok) {
         const fileUrl  = `https://shikshaalochana2021-bit.github.io/${path}`;
+
         const isImage  = file.type.startsWith('image/');
         const isPdf    = file.type === 'application/pdf';
         const mdSnippet = isImage
@@ -949,7 +958,10 @@ For italic: *write this way*"></textarea>
         appendUploadResult(resultId, file.name, fileUrl, false, isImage, mdSnippet, sha !== null);
       } else {
         const err = await res.json();
-        appendUploadResult(resultId, file.name, `Upload failed: ${err.message}`, true);
+        const msg = err.message && err.message.includes('Resource not accessible')
+          ? tokenPermError()
+          : `Upload failed: ${err.message}`;
+        appendUploadResult(resultId, file.name, msg, true);
       }
     } catch(ex) {
       appendUploadResult(resultId, file.name, `Error: ${ex.message}`, true);

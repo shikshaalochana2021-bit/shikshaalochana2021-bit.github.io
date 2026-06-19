@@ -1,0 +1,47 @@
+<header class="site-header">
+  <nav class="nav-container" aria-label="Main navigation">
+    <a href="{{ '/' | relative_url }}" class="site-logo" aria-label="{{ site.title }} Home">
+      <div class="logo-text">
+        <span class="logo-bengali">শিক্ষা আলোচনা</span>
+        <span class="logo-english">Shiksha Alochana</span>
+      </div>
+    </a>
+
+    <button id="menu-toggle" class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <ul id="nav-menu" class="nav-menu" role="list">
+      <li>
+        <a href="{{ '/' | relative_url }}" class="nav-link{% if page.url == '/' %} active{% endif %}">Home</a>
+      </li>
+      <li>
+        <a href="{{ '/about' | relative_url }}" class="nav-link{% if page.url contains 'about' %} active{% endif %}">About Us</a>
+      </li>
+      <li class="dropdown">
+        <a href="{{ '/activities' | relative_url }}" class="nav-link{% if page.url contains 'activities' %} active{% endif %}">
+          Activities <span class="dropdown-arrow">▾</span>
+        </a>
+        <ul class="dropdown-menu" role="list">
+          <li><a href="{{ '/activities#health' | relative_url }}">School Health</a></li>
+          <li><a href="{{ '/activities#school' | relative_url }}">School Programmes</a></li>
+          <li><a href="{{ '/activities#meetings' | relative_url }}">Meetings</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="{{ '/resources' | relative_url }}" class="nav-link{% if page.url contains 'resources' %} active{% endif %}">Resources</a>
+      </li>
+      <li>
+        <a href="{{ '/wall-magazine' | relative_url }}" class="nav-link{% if page.url contains 'wall-magazine' %} active{% endif %}">Wall Magazine</a>
+      </li>
+      <li>
+        <a href="{{ '/news' | relative_url }}" class="nav-link{% if page.url contains 'news' %} active{% endif %}">News</a>
+      </li>
+      <li>
+        <a href="{{ '/contact' | relative_url }}" class="nav-link nav-link-contact{% if page.url contains 'contact' %} active{% endif %}">Contact</a>
+      </li>
+    </ul>
+  </nav>
+</header>

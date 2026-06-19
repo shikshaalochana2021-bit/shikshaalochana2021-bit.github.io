@@ -1,0 +1,175 @@
+---
+layout: home
+title: Home
+description: "An initiative of primary school teachers, academics, and activists from West Bengal."
+---
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="hero-orb hero-orb-3"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge">
+        🎓 &nbsp; West Bengal Primary Education Initiative
+      </div>
+      <h1 class="hero-bengali">শিক্ষা আলোচনা</h1>
+      <p class="hero-english">Shiksha Alochana &mdash; Discussions on Education</p>
+      <p class="hero-tagline">
+        An initiative of primary school teachers, academics, and activists from
+        West Bengal, working together to strengthen primary education through
+        dialogue, collaboration, and shared purpose.
+      </p>
+      <div class="hero-cta">
+        <a href="{{ '/about' | relative_url }}" class="btn btn-outline">About Us</a>
+        <a href="{{ '/activities' | relative_url }}" class="btn btn-accent">Our Activities</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Mission -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Our Mission</span>
+      <h2 class="section-title">What We Stand For</h2>
+      <p class="section-subtitle">
+        Shiksha Alochana brings together educators and community members to build
+        a stronger foundation for primary education across West Bengal.
+      </p>
+    </div>
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-icon">🌱</div>
+        <h3>Strengthen Education</h3>
+        <p>We work to enhance primary education in West Bengal by fostering professional development and sharing best teaching practices among teachers.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🤝</div>
+        <h3>Build Community</h3>
+        <p>We create spaces for primary school teachers, academics, and activists to connect, collaborate, and support one another across districts.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">💬</div>
+        <h3>Foster Dialogue</h3>
+        <p>Through meetings, programmes, and publications, we promote open discussion about education between teachers and the broader public.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats -->
+<div class="stats-strip">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-number">2021</div>
+        <div class="stat-label">Year Founded</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">24+</div>
+        <div class="stat-label">Districts</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">100+</div>
+        <div class="stat-label">Member Teachers</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">50+</div>
+        <div class="stat-label">Programmes Run</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Activities -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">What We Do</span>
+      <h2 class="section-title">Key Activities</h2>
+      <p class="section-subtitle">
+        From health awareness to educational workshops, our programmes reach
+        students, teachers, and families across West Bengal.
+      </p>
+    </div>
+    <div class="grid-3">
+      <div class="activity-card">
+        <div class="activity-card-thumb">🏫</div>
+        <div class="activity-card-body">
+          <span class="activity-tag">Health</span>
+          <h3>School Health Programmes</h3>
+          <p>Health checkups, cardiac screenings, baseline health surveys, and awareness campaigns for students and teachers in primary schools.</p>
+          <a href="{{ '/activities#health' | relative_url }}" class="btn btn-primary btn-sm">Learn More →</a>
+        </div>
+      </div>
+      <div class="activity-card">
+        <div class="activity-card-thumb">📚</div>
+        <div class="activity-card-body">
+          <span class="activity-tag">Education</span>
+          <h3>School Programmes</h3>
+          <p>Educational events, workshops, and surveys designed to improve learning outcomes and professional development in primary schools.</p>
+          <a href="{{ '/activities#school' | relative_url }}" class="btn btn-primary btn-sm">Learn More →</a>
+        </div>
+      </div>
+      <div class="activity-card">
+        <div class="activity-card-thumb">👥</div>
+        <div class="activity-card-body">
+          <span class="activity-tag">Community</span>
+          <h3>Meetings &amp; Assemblies</h3>
+          <p>Annual general assemblies and community meetings bringing teachers, parents, academics, and educators together for dialogue.</p>
+          <a href="{{ '/activities#meetings' | relative_url }}" class="btn btn-primary btn-sm">Learn More →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Latest News -->
+<section class="section">
+  <div class="container">
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:2rem; flex-wrap:wrap; gap:1rem;">
+      <div>
+        <span class="section-label">Stay Updated</span>
+        <h2 class="section-title" style="margin:0;">Latest News</h2>
+      </div>
+      <a href="{{ '/news' | relative_url }}" class="btn btn-outline-green">All News →</a>
+    </div>
+    <div style="background:var(--surface); border-radius:var(--radius-md); border:1px solid var(--border-light); padding:1rem 1.75rem; box-shadow:var(--shadow-sm);">
+      {% for post in site.posts limit:5 %}
+      <div class="post-card">
+        <div class="post-date-box">
+          <span class="day">{{ post.date | date: "%-d" }}</span>
+          <span class="mon">{{ post.date | date: "%b" }}</span>
+        </div>
+        <div class="post-card-content">
+          <h4><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h4>
+          <p>{{ post.excerpt | strip_html | truncate: 110 }}</p>
+        </div>
+      </div>
+      {% else %}
+      <p class="news-empty">No news posts yet — check back soon!</p>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- CTA Strip -->
+<div class="cta-strip">
+  <div class="container">
+    <span class="section-label">Get In Touch</span>
+    <h2 class="section-title">Join the Conversation</h2>
+    <p>Whether you are a teacher, academic, parent, or community member interested in primary education in West Bengal — we would love to hear from you.</p>
+    <div class="cta-buttons">
+      <a href="{{ '/contact' | relative_url }}" class="btn btn-primary">Contact Us</a>
+      <a href="mailto:{{ site.email }}" class="btn btn-outline-green">✉ Email Us</a>
+    </div>
+    <div class="cta-contact-details">
+      <span>📞 {{ site.phone_primary }}</span>
+      <span>📞 {{ site.phone_secondary }}</span>
+      <span>📍 North 24 Parganas, West Bengal</span>
+    </div>
+  </div>
+</div>

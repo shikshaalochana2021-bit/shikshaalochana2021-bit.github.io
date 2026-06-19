@@ -1,0 +1,55 @@
+title: Shiksha Alochana
+title_bengali: শিক্ষা আলোচনা
+tagline: "Discussions on Education"
+description: >
+  An initiative of primary school teachers, academics, and activists from
+  West Bengal, working together to strengthen primary education through
+  dialogue, collaboration, and community.
+
+baseurl: ""
+url: "https://shikshaalochana2021-bit.github.io"
+
+email: shikshaalochana2021@gmail.com
+phone_primary: "+91 9831068201"
+phone_secondary: "+91 9734805117"
+phone_tertiary: "+91 9339493271"
+address_line1: "Narayanpur, Lakshmipul"
+address_line2: "North 24 Parganas, 743234"
+address_line3: "West Bengal, India"
+registration: "S0018040 of 2021-2022"
+
+social:
+  facebook: ""
+  youtube: ""
+
+timezone: Asia/Kolkata
+lang: en
+
+permalink: /news/:year/:month/:day/:title/
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .sass-cache
+  - .jekyll-cache
+  - README.md
+  - "*.sh"

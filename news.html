@@ -1,0 +1,51 @@
+---
+layout: default
+title: News & Updates
+description: "Latest news, events, and updates from Shiksha Alochana."
+permalink: /news/
+---
+
+<div class="page-hero">
+  <div class="container">
+    <nav class="breadcrumb">
+      <a href="{{ '/' | relative_url }}">Home</a>
+      <span>›</span>
+      <span>News &amp; Updates</span>
+    </nav>
+    <h1>News &amp; Updates</h1>
+    <p class="page-hero-desc">The latest from Shiksha Alochana — events, programmes, and announcements.</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    {% if site.posts.size > 0 %}
+    <div class="news-grid">
+      {% for post in site.posts %}
+      <article class="news-card">
+        <div class="news-card-thumb">
+          {% if post.categories contains 'health' %}🏥
+          {% elsif post.categories contains 'education' %}📚
+          {% elsif post.categories contains 'meeting' %}👥
+          {% elsif post.categories contains 'magazine' %}📰
+          {% else %}📣
+          {% endif %}
+        </div>
+        <div class="news-card-body">
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time>
+          <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+          <p>{{ post.excerpt | strip_html | truncate: 130 }}</p>
+          <a href="{{ post.url | relative_url }}" class="read-more">Read more →</a>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+    {% else %}
+    <div class="news-empty" style="padding: 5rem 0;">
+      <div style="font-size:3rem; margin-bottom:1rem;">📰</div>
+      <h3 style="color:var(--primary); margin-bottom:.5rem;">No posts yet</h3>
+      <p>News and updates will appear here. Check back soon!</p>
+    </div>
+    {% endif %}
+  </div>
+</section>

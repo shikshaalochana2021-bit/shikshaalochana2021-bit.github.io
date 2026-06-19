@@ -1,0 +1,60 @@
+---
+layout: default
+---
+
+<div class="page-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="{{ '/' | relative_url }}">Home</a>
+      <span aria-hidden="true">›</span>
+      <a href="{{ '/news' | relative_url }}">News</a>
+      <span aria-hidden="true">›</span>
+      <span>{{ page.title }}</span>
+    </nav>
+    <h1>{{ page.title }}</h1>
+    <div class="post-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+      {% if page.author %} · <span>{{ page.author }}</span>{% endif %}
+      {% if page.categories %}
+        {% for cat in page.categories %}
+        · <span class="post-cat">{{ cat }}</span>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="post-layout">
+      <article class="content-body post-content">
+        {{ content }}
+        <div class="post-footer">
+          <a href="{{ '/news' | relative_url }}" class="btn btn-primary">← Back to News</a>
+        </div>
+      </article>
+      <aside class="post-sidebar">
+        <div class="sidebar-card">
+          <h4>Recent Posts</h4>
+          <ul>
+            {% for post in site.posts limit:5 %}
+            <li>
+              <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+              <span class="sidebar-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="sidebar-card">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="{{ '/about' | relative_url }}">About Us</a></li>
+            <li><a href="{{ '/activities' | relative_url }}">Activities</a></li>
+            <li><a href="{{ '/resources' | relative_url }}">Resources</a></li>
+            <li><a href="{{ '/contact' | relative_url }}">Contact</a></li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>

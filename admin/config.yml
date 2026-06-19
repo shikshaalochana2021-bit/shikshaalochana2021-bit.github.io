@@ -1,0 +1,102 @@
+# Decap CMS Configuration for Shiksha Alochana
+#
+# Decap CMS — browser editing setup
+#
+# The site is already live. To enable the /admin panel for browser-based editing:
+# 1. Go to https://github.com/settings/developers → New OAuth App
+#    - Homepage URL: https://shikshaalochana2021-bit.github.io
+#    - Authorization callback URL: https://shikshaalochana2021-bit.github.io
+# 2. Copy the Client ID and replace YOUR-GITHUB-OAUTH-APP-CLIENT-ID below.
+# 3. Commit and push that one change. Done — visit /admin/ to edit from any browser.
+
+backend:
+  name: github
+  repo: shikshaalochana2021-bit/shikshaalochana2021-bit.github.io
+  branch: main
+  auth_type: implicit
+  app_id: YOUR-GITHUB-OAUTH-APP-CLIENT-ID
+
+media_folder: "assets/images/uploads"
+public_folder: "/assets/images/uploads"
+
+collections:
+
+  - name: "news"
+    label: "News & Updates"
+    label_singular: "Post"
+    folder: "_posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{title}} — {{date}}"
+    fields:
+      - label: "Title"
+        name: "title"
+        widget: "string"
+        hint: "The headline for this news post."
+      - label: "Date"
+        name: "date"
+        widget: "datetime"
+        date_format: "YYYY-MM-DD"
+        time_format: "HH:mm"
+        format: "YYYY-MM-DD HH:mm:ss ZZ"
+      - label: "Author"
+        name: "author"
+        widget: "string"
+        required: false
+        hint: "Optional — leave blank to omit author credit."
+      - label: "Category"
+        name: "categories"
+        widget: "select"
+        multiple: true
+        options:
+          - { label: "General News", value: "news" }
+          - { label: "Health Programme", value: "health" }
+          - { label: "School Programme", value: "education" }
+          - { label: "Meeting / Assembly", value: "meeting" }
+          - { label: "Wall Magazine", value: "magazine" }
+          - { label: "Resources", value: "resources" }
+        default: ["news"]
+      - label: "Excerpt / Summary"
+        name: "excerpt"
+        widget: "text"
+        required: false
+        hint: "A short summary shown on the news listing page (1-2 sentences)."
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
+
+  - name: "pages"
+    label: "Pages"
+    files:
+
+      - label: "About Us"
+        name: "about"
+        file: "about.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "string", required: false }
+          - { label: "Body", name: "body", widget: "markdown" }
+
+      - label: "Activities"
+        name: "activities"
+        file: "activities.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "string", required: false }
+          - { label: "Body", name: "body", widget: "markdown" }
+
+      - label: "Resources"
+        name: "resources"
+        file: "resources.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "string", required: false }
+          - { label: "Body", name: "body", widget: "markdown" }
+
+      - label: "Wall Magazine"
+        name: "wall-magazine"
+        file: "wall-magazine.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "string", required: false }
+          - { label: "Body", name: "body", widget: "markdown" }

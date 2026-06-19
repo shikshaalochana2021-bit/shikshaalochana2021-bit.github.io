@@ -2,6 +2,14 @@
    SHIKSHA ALOCHANA — Main Stylesheet
    ============================================================ */
 
+@font-face {
+  font-family: 'Kalpurush';
+  src: url('/assets/fonts/Kalpurush.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* --- Custom Properties --- */
 :root {
   --primary:       #1B5E20;
@@ -38,7 +46,7 @@
 
   --font-serif:   'Merriweather', Georgia, serif;
   --font-sans:    'Inter', system-ui, -apple-system, sans-serif;
-  --font-bengali: 'Hind Siliguri', sans-serif;
+  --font-bengali: 'Kalpurush', sans-serif;
 
   --ease: 0.2s ease;
   --ease-md: 0.3s ease;

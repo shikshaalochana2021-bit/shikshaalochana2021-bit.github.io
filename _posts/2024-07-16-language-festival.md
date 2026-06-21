@@ -13,3 +13,5 @@ The festival encourages students to express their thoughts through writing and a
 Too often, language teaching focuses on grammar rules and rote exercises. The Language Festival turns this around — starting from children's own experiences and expressions, and building outward to the broader world of language. Students, teachers, and community members come together to celebrate what children can create and communicate.
 
 The festival has shown that children, when given the opportunity and encouragement, have a great deal to say — and that they want to say it.
+
+<img src="/assets/images/uploads/activities/language-festival.jpg" alt="Language Festival — students and teachers gathered together" style="width:100%;border-radius:8px;margin-top:1.5rem;">

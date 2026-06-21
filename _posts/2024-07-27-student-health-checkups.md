@@ -11,3 +11,5 @@ One of the core activities of our School and Community Health Programme is ensur
 Local doctors are invited directly to schools to conduct examinations. Block Health Departments in several areas have provided additional support and resources. The programme covers **all students across 150 primary schools**, ensuring no child is left out.
 
 Where health concerns are identified, follow-up care is arranged in coordination with local health services. This integration of school-based and community health systems is central to the programme's approach.
+
+<img src="/assets/images/uploads/activities/health-checkup.jpg" alt="Student health check-up at a primary school" style="width:100%;border-radius:8px;margin-top:1.5rem;">

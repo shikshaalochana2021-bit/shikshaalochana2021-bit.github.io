@@ -16,3 +16,5 @@ In a single year, **288 community meetings** were organised across the 150 parti
 - Community members
 
 At each meeting, student health ministers presented the objectives of the School and Community Health Programme, building shared understanding and community investment in the health of their school. These meetings have become an important forum for parents to raise health concerns and for schools to respond collectively.
+
+<img src="/assets/images/uploads/activities/community-meeting.jpg" alt="Community health meeting with parents and teachers" style="width:100%;border-radius:8px;margin-top:1.5rem;">

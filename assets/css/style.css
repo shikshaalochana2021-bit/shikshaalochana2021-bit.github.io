@@ -192,7 +192,8 @@ p:last-child { margin-bottom: 0; }
   gap: 1.5rem;
 }
 
-.site-logo { display: flex; align-items: center; gap: .6rem; text-decoration: none; flex-shrink: 0; }
+.site-logo { display: flex; align-items: center; gap: .75rem; text-decoration: none; flex-shrink: 0; }
+.logo-img { height: 44px; width: auto; display: block; flex-shrink: 0; }
 .logo-text { display: flex; flex-direction: column; line-height: 1.1; }
 .logo-bengali { font-family: var(--font-bengali); font-size: 1.2rem; font-weight: 700; color: #fff; }
 .logo-english { font-size: .62rem; font-weight: 400; color: rgba(255,255,255,.65); letter-spacing: .09em; text-transform: uppercase; margin-top: 1px; }

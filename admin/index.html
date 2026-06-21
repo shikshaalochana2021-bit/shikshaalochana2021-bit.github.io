@@ -562,6 +562,7 @@
       <button class="admin-nav-btn"        id="nav-posts"  onclick="showView('posts')">All Posts</button>
       <button class="admin-nav-btn"        id="nav-upload" onclick="showView('upload')">Upload Files</button>
     </nav>
+    <button class="admin-logout" onclick="shareLink()" title="Get a link to share with others">Share link</button>
     <button class="admin-logout" onclick="logout()">Log out</button>
   </header>
 
@@ -668,6 +669,22 @@ For italic: *write this way*"></textarea>
     </div>
 
   </main>
+</div>
+
+<!-- SHARE LINK MODAL -->
+<div class="modal-overlay" id="share-modal">
+  <div class="modal">
+    <h3 style="color:var(--green-dark);">Share Admin Access</h3>
+    <p>Send this link to anyone who needs to upload files or write posts. They click it once and are logged in automatically — no token entry needed.</p>
+    <div class="url-copy-row" style="margin-bottom:.75rem;">
+      <input type="text" id="share-url" readonly onclick="this.select()" style="font-size:.75rem;">
+      <button class="btn-copy" onclick="copyShareLink()">Copy</button>
+    </div>
+    <p style="font-size:.78rem;color:#c62828;margin-bottom:1rem;">⚠ Only share with people you trust. This link gives full access to edit the website.</p>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" onclick="closeShareModal()">Close</button>
+    </div>
+  </div>
 </div>
 
 <!-- DELETE MODAL -->
@@ -881,6 +898,44 @@ For italic: *write this way*"></textarea>
 
   document.getElementById('token-input').addEventListener('keydown', e => { if (e.key === 'Enter') login(); });
 
+  /* auto-login from shared link hash */
+  (function() {
+    const hash = window.location.hash;
+    const match = hash.match(/[#&]k=([^&]+)/);
+    if (match) {
+      try {
+        const tok = atob(match[1]);
+        if (tok) {
+          localStorage.setItem('gh_token', tok);
+          window.location.hash = '';
+          showEditor();
+        }
+      } catch(e) {}
+    }
+  })();
+
+  /* share link */
+  function shareLink() {
+    const tok = localStorage.getItem('gh_token');
+    if (!tok) return;
+    const url = window.location.origin + '/admin/#k=' + btoa(tok);
+    document.getElementById('share-url').value = url;
+    document.getElementById('share-modal').classList.add('open');
+  }
+
+  function copyShareLink() {
+    const val = document.getElementById('share-url').value;
+    navigator.clipboard.writeText(val).then(() => {
+      const btn = document.querySelector('#share-modal .btn-copy');
+      btn.textContent = 'Copied!';
+      setTimeout(() => btn.textContent = 'Copy', 1800);
+    });
+  }
+
+  function closeShareModal() {
+    document.getElementById('share-modal').classList.remove('open');
+  }
+
   /* ── UPLOAD ── */
   const uploadZone = document.getElementById('upload-zone');
   const fileInput  = document.getElementById('file-input');
@@ -909,7 +964,11 @@ For italic: *write this way*"></textarea>
 
   async function uploadFile(file) {
     const token    = localStorage.getItem('gh_token');
-    const safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, '_');
+    const ext      = file.name.includes('.') ? '.' + file.name.split('.').pop().toLowerCase() : '';
+    const nameBase = file.name.slice(0, file.name.lastIndexOf('.') < 0 ? file.name.length : file.name.lastIndexOf('.'));
+    let   cleaned  = nameBase.replace(/[^a-zA-Z0-9._-]/g, '-').replace(/-+/g, '-').replace(/^-+|-+$/g, '');
+    if (!cleaned || cleaned.length < 2) cleaned = 'file-' + Date.now();
+    const safeName = cleaned.substring(0, 60) + ext;
     const path     = `assets/images/uploads/${safeName}`;
     const resultId = 'upload-' + Date.now() + '-' + Math.random().toString(36).slice(2);
 

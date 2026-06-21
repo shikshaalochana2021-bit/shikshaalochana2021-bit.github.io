@@ -1,57 +1,59 @@
 ---
 layout: page
 title: About Us
-description: "Learn about Shiksha Alochana — who we are, what we do, and why it matters."
+description: "Shiksha Alochana is an initiative of primary school teachers, academics, and activists from West Bengal working to strengthen primary education."
 permalink: /about/
 ---
 
 ## Who We Are
 
-**Shiksha Alochana** (শিক্ষা আলোচনা) — meaning *Discussions on Education* — is an initiative of primary school teachers, academics, and activists from West Bengal. Founded in 2021, the organisation exists to bring people together around a shared belief: that quality primary education is the foundation of everything.
+**Shiksha Alochana** (শিক্ষা আলোচনা), literally *discussions on education*, is an initiative of primary school teachers, academics, and activists from West Bengal. We believe that positive change in primary education is possible — and that the teachers themselves are the most important agents of that change.
 
-We are registered as a society under registration number **S0018040 of 2021-2022**.
+We started in approximately twenty schools across two districts, North 24 Parganas and South Dinajpur. We have since grown to around **three hundred schools across twenty districts** of West Bengal.
 
----
-
-## Our Objectives
-
-- **Enhance primary education** in West Bengal through meaningful interactions between primary school teachers, and between teachers and the wider public.
-- **Build a professional community** where teachers can share experiences, resources, and ideas across districts.
-- **Promote health and wellbeing** in primary schools through health programmes and awareness campaigns.
-- **Publish and share** teaching resources, reports, and our wall magazine to support educators.
-- **Organise meetings and assemblies** that give teachers a collective voice.
+Many teachers have proactively reached out to Shiksha Alochana to join this effort. Communities have responded warmly to our invitation to participate in transforming their local schools. Our work challenges the stereotype of teacher absenteeism and disengagement — we see every day that teachers care deeply about their students and are looking for meaningful support and solidarity.
 
 ---
 
-## Our Story
+## What We Do
 
-Shiksha Alochana was born out of a recognition that primary school teachers in West Bengal — despite their vital role — often work in isolation, without access to the professional networks, resources, or platforms that their work deserves.
+We work at the intersection of teachers, students, communities, and academic knowledge to improve the quality of primary education. Our programmes include:
 
-A group of dedicated teachers, academics, and education activists came together to change that. Since 2021, the organisation has grown into a network spanning multiple districts of West Bengal, bringing together hundreds of educators united by a common purpose.
-
----
-
-## What Makes Us Different
-
-We are run **by teachers, for teachers** — with the support of academics and community leaders who share our commitment to primary education. We are non-partisan and non-commercial. Our only agenda is better education and stronger communities.
-
-We work at the grassroots level, going directly to schools, meeting teachers and children where they are.
+- **School Programmes** — Language festivals, student-teacher workshops, reading festivals, and math festivals
+- **School and Community Health Programme** — Health check-ups, awareness campaigns, cardiac screening, and community meetings across 150+ schools
+- **Annual General Meetings** — Bringing teachers, academics, and community members together from across West Bengal
+- **Teaching Resources** — Developing and freely sharing teaching guides, modules, and handbooks
 
 ---
 
-## Leadership & Team
+## Office Bearers
 
-*For information about our current leadership and team, please [contact us](/contact/).*
+| Role | Name |
+|------|------|
+| President | Kumar Rana |
+| Vice-President | Pabitra Mohanta |
+| Secretary | Tapan Kumar Pramanik |
+| Assistant Secretary | Ambujapada Raha |
+| Assistant Secretary | Archana Mondal |
+| Treasurer | Arun Kumar Dey |
 
 ---
 
-## Registration Details
+## Governing Body
 
-| Detail | Information |
-|--------|-------------|
-| Organisation Name | Shiksha Alochana |
-| Bengali Name | শিক্ষা আলোচনা |
-| Registration Number | S0018040 of 2021-2022 |
-| Type | Non-Profit Society |
-| State | West Bengal, India |
-| Address | Narayanpur, Lakshmipul, North 24 Parganas, 743234 |
+Ajoy Chakraborty · Amlan Bishnu · Aniruddha Halder · Bireswar Biswas · Mithu Dey Purakayastha · Rajnarayan Goswami · Ranjit Sutradhar · Safikul Islam · Sukumar Seth · Subimal Pramanik · Swarup Ch. Bisui
+
+---
+
+## Advisory Board
+
+Achin Chakraborty · Anirban Chattapadhay · Anita Agnihotri (IAS Retd.) · Dilip Ghosh (IAS Retd.) · Dr. Abhijit Chowdhury · Dr. Debabrata Roy · Gopa Samanta · Manisha Banerjee · Pulak Roy Chowdhury · Simanto Guhathakurta · Soumitra Sankar Sengupta (IAS) · Sukanta Chaudhuri
+
+---
+
+## Registration
+
+Shiksha Alochana is a registered society.
+**Registration No.:** S0018040 of 2021–2022
+
+[Get in touch with us →](/contact/)

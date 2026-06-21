@@ -1,24 +1,101 @@
 ---
 layout: page
 title: Resources
-description: "Teaching guides, reports, and materials for primary school educators."
+description: "Teaching guides, reports, and materials for primary school educators — freely shared by Shiksha Alochana."
 permalink: /resources/
 ---
 
-Shiksha Alochana is committed to sharing knowledge freely. This page brings together teaching guides, reports, and other materials useful for primary school teachers in West Bengal.
+Shiksha Alochana is committed to sharing knowledge freely. All teaching guides and reports below are available for download at no cost.
+
+---
+
+## Teaching Modules
+
+Subject-wise teaching modules developed for primary school teachers.
+
+<div class="resource-list">
+  <a href="/assets/images/uploads/teaching-module-english.pdf" class="resource-item" target="_blank">
+    <span class="resource-icon">📄</span>
+    <span class="resource-info">
+      <strong>Teaching Module — English</strong>
+      <span>PDF · Subject module for English teaching</span>
+    </span>
+    <span class="resource-dl">Download ↓</span>
+  </a>
+  <a href="/assets/images/uploads/teaching-module-bengali.pdf" class="resource-item" target="_blank">
+    <span class="resource-icon">📄</span>
+    <span class="resource-info">
+      <strong>Teaching Module — Bengali / বাংলা</strong>
+      <span>PDF · Subject module for Bengali teaching</span>
+    </span>
+    <span class="resource-dl">Download ↓</span>
+  </a>
+  <a href="/assets/images/uploads/teaching-module-math.pdf" class="resource-item" target="_blank">
+    <span class="resource-icon">📄</span>
+    <span class="resource-info">
+      <strong>Teaching Module — Mathematics / গণিত</strong>
+      <span>PDF · Subject module for Mathematics teaching</span>
+    </span>
+    <span class="resource-dl">Download ↓</span>
+  </a>
+</div>
+
+---
+
+## Teacher's Handbooks
+
+Practical handbooks for primary school teachers, subject-wise.
+
+<div class="resource-list">
+  <a href="/assets/images/uploads/teachers-handbook-english.pdf" class="resource-item" target="_blank">
+    <span class="resource-icon">📘</span>
+    <span class="resource-info">
+      <strong>Teacher's Handbook — English</strong>
+      <span>PDF · Handbook for English teachers (December 2021)</span>
+    </span>
+    <span class="resource-dl">Download ↓</span>
+  </a>
+  <a href="/assets/images/uploads/teachers-handbook-bengali.pdf" class="resource-item" target="_blank">
+    <span class="resource-icon">📘</span>
+    <span class="resource-info">
+      <strong>Teacher's Handbook — Bengali / বাংলা</strong>
+      <span>PDF · Handbook for Bengali teachers</span>
+    </span>
+    <span class="resource-dl">Download ↓</span>
+  </a>
+  <a href="/assets/images/uploads/teachers-handbook-math.pdf" class="resource-item" target="_blank">
+    <span class="resource-icon">📘</span>
+    <span class="resource-info">
+      <strong>Teacher's Handbook — Mathematics / গণিত</strong>
+      <span>PDF · Handbook for Mathematics teachers</span>
+    </span>
+    <span class="resource-dl">Download ↓</span>
+  </a>
+</div>
+
+---
+
+## Teaching Videos
+
+We share instructional video content on our YouTube channel, covering English, Bengali, and Mathematics teaching techniques for primary classes.
+
+**Series available:**
+- English Sopan 4 — Making words
+- English Sopan 10 — Concept of this, that, these, those
+- English Sopan 11 — Articles
+
+[Watch on YouTube →](https://www.youtube.com/@shikshaalochana740){:target="_blank"}
 
 ---
 
 ## Annual Reports
 
-Documents covering Shiksha Alochana's work and impact each year.
-
 <div class="resource-list">
-  <a href="/assets/images/uploads/learning-together-report-2021.pdf" class="resource-item" target="_blank">
+  <a href="/assets/images/uploads/report-learning-together-2021.pdf" class="resource-item" target="_blank">
     <span class="resource-icon">📄</span>
     <span class="resource-info">
-      <strong>Learning Together — Shiksha Alochana Report 2021</strong>
-      <span>PDF · Annual report for 2021</span>
+      <strong>Learning Together: The Opportunity to Achieve Universal Education (2021)</strong>
+      <span>PDF · Published September 2021 by Shiksha Alochana</span>
     </span>
     <span class="resource-dl">Download ↓</span>
   </a>
@@ -42,16 +119,14 @@ Documents covering Shiksha Alochana's work and impact each year.
 
 ---
 
-## Education Reports
-
-Research and findings on primary education in West Bengal.
+## Education Research
 
 <div class="resource-list">
   <a href="/assets/images/uploads/primary-education-report.pdf" class="resource-item" target="_blank">
     <span class="resource-icon">📄</span>
     <span class="resource-info">
-      <strong>Primary Education Report</strong>
-      <span>PDF · Research on primary education</span>
+      <strong>Primary Education Report — Scope for Change</strong>
+      <span>PDF · Published by Pratichi Institute &amp; Shiksha Alochana</span>
     </span>
     <span class="resource-dl">Download ↓</span>
   </a>
@@ -60,8 +135,6 @@ Research and findings on primary education in West Bengal.
 ---
 
 ## Health Programme Reports
-
-Reports from our School and Community Health Programme.
 
 <div class="resource-list">
   <a href="/assets/images/uploads/health-programme-report.pptx" class="resource-item" download>
@@ -84,26 +157,16 @@ Reports from our School and Community Health Programme.
 
 ---
 
-## Teaching Guides
-
-Practical teaching resources that primary school teachers can use directly in their classrooms.
-
-*Teaching guides will be listed here as they are published. Please [contact us](/contact/) to request specific materials or contribute your own.*
-
----
-
 ## External Resources
 
-Useful resources from other organisations working in primary education:
-
-- [National Council of Educational Research and Training (NCERT)](https://ncert.nic.in)
-- [West Bengal Board of Primary Education](https://wbbpe.org)
-- [Sarva Shiksha Abhiyan, West Bengal](https://wbsed.gov.in)
+- [National Council of Educational Research and Training (NCERT)](https://ncert.nic.in){:target="_blank"}
+- [West Bengal Board of Primary Education](https://wbbpe.org){:target="_blank"}
+- [Sarva Shiksha Abhiyan, West Bengal](https://wbsed.gov.in){:target="_blank"}
 
 ---
 
 ## Contribute
 
-Do you have teaching materials, resources, or knowledge to share with the Shiksha Alochana community?
+Do you have teaching materials or resources to share with the Shiksha Alochana community?
 
 [Send us your resources →](/contact/)
